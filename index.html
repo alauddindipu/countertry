@@ -56,9 +56,18 @@
     </div>
     <!-- js started -->
 <script>
-    let initVal=0;
-    document.getElementById('val')=initVal;
-    document.getElementById('inc')
+     let initVal=0;
+    document.getElementById('val').innerText=initVal;
+    document.getElementById('inc').addEventListener('click',incFunction);
+    document.getElementById('dec').addEventListener('click',decFunction);
+
+    function incFunction(){
+        document.getElementById('val').innerHTML=++initVal;
+    }
+
+    function decFunction(){
+        document.getElementById('val').innerHTML=--initVal;
+    }
 </script>
 </body>
 </html>
