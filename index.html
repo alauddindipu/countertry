@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter Try</title>
+    <style>
+       body{
+        background-color: black;
+        color: white;
+       } 
+       .container{
+        display: flex;
+        flex-direction: column;
+        /* align-content: center; */
+        align-items: center;
+        justify-content: center;
+       }
+       .count{
+        font-weight: 900;
+        font-size: 70px;
+        padding: 50px;
+       }
+        .box{
+            border-style: solid;
+            border-color: ridge;
+            /* height: 500px; */
+            /* width: full; */
+            padding: 50px;
+        }
+        #val{
+            color: aqua;
+            text-align: center;
+        }
+        #inc{
+            padding: 10px;
+            background-color: greenyellow;
+            
+        }
+        #dec{
+            padding: 10px;
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="count">Counter</div>
+        <div class="box">
+            <p class="count" id="val"></p>
+
+            <button id="inc">Increment</button>
+            <button id="dec">Decrement</button>
+        </div>
+    </div>
+    <!-- js started -->
+<script>
+    let initVal=0;
+    document.getElementById('val')=initVal;
+    document.getElementById('inc')
+</script>
+</body>
+</html>
