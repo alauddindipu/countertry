@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="pid">Sample paragraph container</p>
+    <button onclick="newFunction()">function calling</button>
+    <button id="clickEventId">event listener call</button>
+
+
+    <!-- js starting -->
+     <script>
+         let getPid = document.getElementById('pid');
+
+        function newFunction(){
+            getPid.innerText='New para by function calling';
+            getPid.style.color="green";
+            getPid.style.fontWeight=900;            
+        }
+
+        
+        document.getElementById('clickEventId').addEventListener('click',eventLlistFunction);
+        function eventLlistFunction(){
+            getPid.innerText="changed by event Listenr calling function";
+            getPid.style.color="Red";
+            getPid.style.fontSize='30px';
+        }
+
+     </script>
+</body>
+</html>
