@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>DomTry</title>
+    <style>
+        .fade-out{
+            transition: opacity 1s;
+            opacity: 0;
+        }
+    </style>
 </head>
 <body>
     <p id="pid">Sample paragraph container</p>
@@ -50,8 +56,19 @@
          document.getElementById('deleteParaBtn').addEventListener('click',function(){
            let paraCon = document.getElementById('paraContain');
            let para=paraCon.getElementsByTagName('p');
-           let lastPara=para[para.length-1];
-           paraCon.removeChild(lastPara);
+
+            if(para.length===0){
+                alert("Nothing to delete");
+            }else{
+                let lastPara=para[para.length-1];
+                lastPara.classList.add("fade-out");
+                setTimeout(function(){
+                    paraCon.removeChild(lastPara);
+                },1000)
+               
+            }
+
+          
         })
 
 
