@@ -9,7 +9,15 @@
     <p id="pid">Sample paragraph container</p>
     <button onclick="newFunction()">function calling</button>
     <button id="clickEventId">event listener call</button>
+<hr>
+    <div id="paraContain">
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque ea rem, omnis rerum minus nemo!</p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque ea rem, omnis rerum minus nemo!</p>
+        <textarea name="" id="textarea-id" cols="50" rows="7"></textarea>
 
+    </div>
+    <button id="addParaBtn">add paragraph</button>
+    <button id="deleteParaBtn">delete paragraph</button>
 
     <!-- js starting -->
      <script>
@@ -28,6 +36,24 @@
             getPid.style.color="Red";
             getPid.style.fontSize='30px';
         }
+
+        // adding paragraph
+        document.getElementById('addParaBtn').addEventListener('click',function(){
+          let areaInput=  document.getElementById('textarea-id').value;
+          let paraTag=document.createElement('p');
+          paraTag.innerHTML=areaInput;
+          document.getElementById('paraContain').appendChild(paraTag);
+          document.getElementById('textarea-id').value='';    
+
+        })
+         //   delete para
+         document.getElementById('deleteParaBtn').addEventListener('click',function(){
+           let paraCon = document.getElementById('paraContain');
+           let para=paraCon.getElementsByTagName('p');
+           let lastPara=para[para.length-1];
+           paraCon.removeChild(lastPara);
+        })
+
 
      </script>
 </body>
