@@ -32,12 +32,12 @@
             color: aqua;
             text-align: center;
         }
-        #inc{
+        #incVal{
             padding: 10px;
             background-color: greenyellow;
             
         }
-        #dec{
+        #decVal{
             padding: 10px;
             background-color: red;
             color: white;
@@ -50,23 +50,43 @@
         <div class="box">
             <p class="count" id="val"></p>
 
-            <button id="inc">Increment</button>
-            <button id="dec">Decrement</button>
+            <button id="incVal">Increment</button>
+            <button id="decVal">Decrement</button>
         </div>
     </div>
     <!-- js started -->
 <script>
-     let initVal=0;
+     let initVal= localStorage.getItem('keyV') || 0;
     document.getElementById('val').innerText=initVal;
-    document.getElementById('inc').addEventListener('click',incFunction);
-    document.getElementById('dec').addEventListener('click',decFunction);
 
+    if(initVal==0){
+            document.getElementById("decVal").setAttribute("disabled","disabled");
+        }
+
+
+    document.getElementById('incVal').addEventListener('click',incFunction);
+    document.getElementById('decVal').addEventListener('click',decFunction);
+
+ 
     function incFunction(){
-        document.getElementById('val').innerHTML=++initVal;
+
+        document.getElementById("decVal").removeAttribute("disabled");
+
+        incremented=++initVal;
+        document.getElementById('val').innerText=incremented;
+        localStorage.setItem('keyV',incremented);
     }
 
     function decFunction(){
-        document.getElementById('val').innerHTML=--initVal;
+
+        if(initVal==0){
+            document.getElementById("decVal").setAttribute("disabled","disabled");
+            return;// not able to be less than 0
+        }
+
+        decremneted=--initVal;
+        document.getElementById('val').innerText=decremneted;
+        localStorage.setItem('keyV',decremneted);
     }
 </script>
 </body>
